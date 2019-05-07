@@ -22,12 +22,36 @@ export const loadUser = () => (dispatch, getState) => {
 		});
 };
 
+export const register = ({ name, email, password }) => dispatch => {
+	const config = {
+		headers: {
+			"Content-type": "application/json"
+		}
+	};
+
+	const body = JSON.stringify({ name, email, password });
+
+	axios
+		.post("/api/users", body, config)
+		.then(response => dispatch({ type: REGISTER_SUCCESS, payload: response.data }))
+		.catch(error => {
+			dispatch(returnErrors(error.response.data, error.response.status, "REGISTER_FAIL"));
+			dispatch({ type: REGISTER_FAIL });
+		});
+};
+
+export const logout = () => {
+	return {
+		type: LOGOUT_SUCCESS
+	};
+};
+
 export const tokenConfig = getState => {
 	const token = getState().auth.token;
 
 	const config = {
 		headers: {
-			"Content-type": "applications/json"
+			"Content-type": "application/json"
 		}
 	};
 

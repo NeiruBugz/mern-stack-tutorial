@@ -7,7 +7,7 @@ export const returnErrors = (msg, status, id = null) => {
 	};
 };
 
-export const clearErrorrs = () => {
+export const clearErrors = () => {
 	return {
 		type: CLEAR_ERRORS
 	};
