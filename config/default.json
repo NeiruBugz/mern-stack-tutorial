@@ -1,0 +1,4 @@
+{
+	"mongoURI": "mongodb+srv://admin:admin@vue-application-30ydd.mongodb.net/test?retryWrites=true",
+	"jwtSecret": "sl_mern_jwtSecret"
+}
